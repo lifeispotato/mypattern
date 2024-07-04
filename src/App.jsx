@@ -48,25 +48,8 @@ function App() {
     setSubmission(true);
   };
 
-  useEffect(() => {
-    function sendHeight() {
-      const targetDiv = document.getElementById("targetDiv");
-      const height = targetDiv.scrollHeight; // 또는 targetDiv.offsetHeight;
-      parent.postMessage({ type: "setHeight", height }, "*");
-    }
-
-    window.addEventListener("load", sendHeight);
-    window.addEventListener("resize", sendHeight);
-
-    return () => {
-      window.removeEventListener("load", sendHeight);
-      window.removeEventListener("resize", sendHeight);
-    };
-  }, []);
-
   return (
     <div
-      id="targetDiv"
       style={{
         padding: 40,
         display: "flex",
@@ -218,7 +201,7 @@ function App() {
             패턴유형
           </PretendardText>
           <img
-            src={`../src/assets/images/pattern${pattern}.png`}
+            src={`https://my-pattern.netlify.app/src/assets/images/pattern${pattern}.png`}
             alt=""
             style={{ maxWidth: "100%", height: "auto" }}
           />
@@ -258,12 +241,12 @@ function App() {
                 }}
               >
                 <img
-                  src={`../src/assets/images/pattern${num}.png`}
+                  src={`https://my-pattern.netlify.app/src/assets/images/pattern${num}.png`}
                   alt=""
                   style={{ maxWidth: "100%", height: "auto" }}
                 />
                 <img
-                  src={`../src/assets/images/radio_${
+                  src={`https://my-pattern.netlify.app/src/assets/images/radio_${
                     pattern === num ? "a" : "d"
                   }.png`}
                   alt=""
