@@ -201,7 +201,7 @@ function App() {
             패턴유형
           </PretendardText>
           <img
-            src={`https://my-pattern.netlify.app/src/assets/images/pattern${pattern}.png`}
+            src={`/assets/images/pattern${pattern}.png`}
             alt=""
             style={{ maxWidth: "100%", height: "auto" }}
           />
@@ -241,12 +241,12 @@ function App() {
                 }}
               >
                 <img
-                  src={`https://my-pattern.netlify.app/src/assets/images/pattern${num}.png`}
+                  src={`/assets/images/pattern${num}.png`}
                   alt=""
                   style={{ maxWidth: "100%", height: "auto" }}
                 />
                 <img
-                  src={`https://my-pattern.netlify.app/src/assets/images/radio_${
+                  src={`/assets/images/radio_${
                     pattern === num ? "a" : "d"
                   }.png`}
                   alt=""
