@@ -106,7 +106,7 @@ function App() {
           alignItems: "center",
           gap: isMobile ? "8.66px" : submission ? "10px" : "15px",
           width: "100%",
-          marginTop: isMobile ? "17pxpx" : "30px",
+          marginTop: isMobile ? "17px" : "30px",
         }}
       >
         {submission ? (
