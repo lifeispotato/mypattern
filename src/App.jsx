@@ -5,8 +5,11 @@ import MainInput from "./components/mainInput";
 import SizeBox from "./components/sizeBox";
 import StandardSizeBox from "./components/standardSizeBox";
 import { standardSize } from "./constant/size";
+import { useMediaQuery } from "react-responsive";
 
 function App() {
+  const isMobile = useMediaQuery({ query: "(max-resolution: 430px)" });
+
   const [name, setName] = useState(null);
   const [shoulder, setShoulder] = useState(null);
   const [chest, setChest] = useState(null);
@@ -61,10 +64,10 @@ function App() {
         <PretendardText
           style={{
             color: "#111",
-            fontSize: "35px",
+            fontSize: isMobile ? "18px" : "35px",
             fontWeight: "600",
             lineHeight: submission ? "49px" : "56px",
-            letterSpacing: "-0.6px",
+            letterSpacing: isMobile ? "-0.35px" : "-0.6px",
             textAlign: "center",
           }}
         >
@@ -82,12 +85,12 @@ function App() {
           <PretendardText
             style={{
               color: "#444",
-              fontSize: "18px",
+              fontSize: isMobile ? "12px" : "18px",
               fontWeight: "400",
-              lineHeight: "27px",
-              letterSpacing: "-0.6px",
+              lineHeight: isMobile ? "18px" : "27px",
+              letterSpacing: isMobile ? "-0.35px" : "-0.6px",
               textAlign: "center",
-              marginTop: "15px",
+              marginTop: isMobile ? "8.66px" : "15px",
             }}
           >
             이제 집에서도 손쉽게 정확한 치수를 측정하고,
@@ -101,9 +104,9 @@ function App() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: submission ? "10px" : "15px",
+          gap: isMobile ? "8.66px" : submission ? "10px" : "15px",
           width: "100%",
-          marginTop: "30px",
+          marginTop: isMobile ? "17pxpx" : "30px",
         }}
       >
         {submission ? (
@@ -183,19 +186,19 @@ function App() {
             width: "100%",
             backgroundColor: "#f6f6f6",
             borderRadius: "4px",
-            padding: "14px 15px",
+            padding: isMobile ? "10px" : "14px 15px",
             display: "flex",
             justifyContent: "space-between",
-            marginTop: "10px",
+            marginTop: isMobile ? "8.66px" : "10px",
           }}
         >
           <PretendardText
             style={{
               color: "#777",
-              fontSize: "18px",
+              fontSize: isMobile ? "12px" : "18px",
               fontWeight: "400",
-              lineHeight: "27px",
-              letterSpacing: "-0.6px",
+              fontSize: isMobile ? "18px" : "27px",
+              fontSize: isMobile ? "-0.35px" : "-0.6px",
             }}
           >
             패턴유형
@@ -211,10 +214,10 @@ function App() {
           <PretendardText
             style={{
               color: "#111",
-              fontSize: "18px",
+              fontSize: isMobile ? "12px" : "18px",
               fontWeight: "400",
-              lineHeight: "27px",
-              letterSpacing: "-0.6px",
+              fontSize: isMobile ? "18px" : "27px",
+              fontSize: isMobile ? "-0.35px" : "-0.6px",
             }}
           >
             패턴 유형
@@ -267,10 +270,10 @@ function App() {
             <PretendardText
               style={{
                 color: "#111",
-                fontSize: "18px",
+                fontSize: isMobile ? "12px" : "18px",
                 fontWeight: "600",
-                lineHeight: "25.2px",
-                letterSpacing: "-0.6px",
+                fontSize: isMobile ? "18px" : "27px",
+                fontSize: isMobile ? "-0.35px" : "-0.6px",
               }}
             >
               상의 치수
@@ -350,7 +353,7 @@ function App() {
             justifyContent: "center",
             borderRadius: "50px",
             cursor: "pointer",
-            marginTop: "30px",
+            marginTop: isMobile ? "17px" : "30px",
           }}
           onClick={() => {
             if (
@@ -370,10 +373,10 @@ function App() {
           <PretendardText
             style={{
               color: "#fff",
-              fontSize: "18px",
+              fontSize: isMobile ? "12px" : "18px",
               fontWeight: "500",
-              lineHeight: "23.4px",
-              letterSpacing: "-0.6px",
+              fontSize: isMobile ? "18px" : "27px",
+              fontSize: isMobile ? "-0.35px" : "-0.6px",
             }}
           >
             제출하기

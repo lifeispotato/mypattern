@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PretendardText from "./pretendardText";
+import { useMediaQuery } from "react-responsive";
 
 function MainInput({
   type,
@@ -8,18 +9,19 @@ function MainInput({
   value,
   onChange,
   onClick,
-  onError,
   disabled,
   style,
   dataPlaceholder,
   onKeyDown,
   step,
-  helperText,
   isCm,
 }) {
+  const isMobile = useMediaQuery({ query: "(max-resolution: 430px)" });
+
   return (
     <MainInputContainer>
       <MainInputWrapper
+        $isMobile={isMobile}
         type={type}
         disabled={disabled}
         placeholder={placeholder}
@@ -27,16 +29,13 @@ function MainInput({
         value={value || ""}
         onChange={onChange}
         onClick={onClick}
-        onError={onError}
         onKeyDown={onKeyDown}
         step={step}
         style={{
           ...style,
-          borderColor: `${onError ? "#FF003D" : "#ebebeb"}`,
         }}
       />
       {isCm && <CmText>cm</CmText>}
-      {onError ? <HelperText onError={onError}>{helperText}</HelperText> : ""}
     </MainInputContainer>
   );
 }
@@ -50,57 +49,42 @@ const MainInputContainer = styled.div.attrs((props) => {})`
 
 const MainInputWrapper = styled.input.attrs((props) => {})`
   width: 100%;
-  height: 55px;
-  padding: 14px 15px;
+  height: ${(props) => (props.$isMobile ? "38px" : "55px")};
+  padding: ${(props) => (props.$isMobile ? "10px" : " 14px 15px")};
   border-radius: 4px;
   border: 1px solid #ebebeb;
   background: #fff;
   font-family: Pretendard;
-  font-size: 18px;
+  font-size: ${(props) => (props.$isMobile ? "12px" : " 18px")};
   font-style: normal;
   font-weight: 400;
-  line-height: 27px;
-  letter-spacing: -0.6px;
+  line-height: ${(props) => (props.$isMobile ? "18px" : " 27px")};
+  letter-spacing: ${(props) => (props.$isMobile ? "-0.35px" : " -0.6px")};
   color: #111111;
 
   &::placeholder {
     font-family: Pretendard;
-    font-size: 15px;
+    font-size: ${(props) => (props.$isMobile ? "12px" : " 18px")};
     font-style: normal;
     font-weight: 400;
-    line-height: 21.25px;
+    line-height: ${(props) => (props.$isMobile ? "18px" : " 27px")};
+    letter-spacing: ${(props) => (props.$isMobile ? "-0.35px" : " -0.6px")};
     color: #777777;
   }
 
   &:focus {
     outline: none;
-    border: 1px solid var(--sub-color-3, #27beff);
-  }
-
-  &:disabled {
-    outline: none;
-    border: 1px solid #d7dbe0;
-    background: #eef2f3;
-    color: #b8bfc4;
   }
 `;
 
 const CmText = styled(PretendardText).attrs((props) => {})`
   color: #111;
-  font-size: 14px;
+  font-size: ${(props) => (props.$isMobile ? "12px" : " 14px")};
   font-weight: 600;
-  line-height: 21px;
-  letter-spacing: -0.6px;
+  line-height: ${(props) => (props.$isMobile ? "18px" : " 21px")};
+  letter-spacing: ${(props) => (props.$isMobile ? "-0.35px" : " -0.6px")};
   position: absolute;
   top: 50%;
   right: 15px;
   transform: translateY(-50%);
-`;
-
-const HelperText = styled(PretendardText).attrs((props) => {})`
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 22.75px;
-  color: ${(props) => (props.onError ? "#FF003D" : "#808991")};
-  margin-top: 3px;
 `;

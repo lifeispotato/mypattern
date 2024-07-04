@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import PretendardText from "./pretendardText";
+import { useMediaQuery } from "react-responsive";
 
 const StandardSizeBox = ({ title, value, style }) => {
+  const isMobile = useMediaQuery({ query: "(max-resolution: 430px)" });
+
   return (
     <StandardSizeBoxWrapper style={style}>
       <div
@@ -17,10 +20,10 @@ const StandardSizeBox = ({ title, value, style }) => {
         <PretendardText
           style={{
             color: "#111",
-            fontSize: "18px",
+            fontSize: isMobile ? "12px" : "18px",
             fontWeight: "400",
-            lineHeight: "27px",
-            letterSpacing: "-0.6px",
+            fontSize: isMobile ? "18px" : "27px",
+            fontSize: isMobile ? "-0.35px" : "-0.6px",
           }}
         >
           {title}
@@ -38,10 +41,10 @@ const StandardSizeBox = ({ title, value, style }) => {
         <PretendardText
           style={{
             color: "#111",
-            fontSize: "18px",
+            fontSize: isMobile ? "12px" : "18px",
             fontWeight: "400",
-            lineHeight: "27px",
-            letterSpacing: "-0.6px",
+            fontSize: isMobile ? "18px" : "27px",
+            fontSize: isMobile ? "-0.35px" : "-0.6px",
           }}
         >
           {value}
