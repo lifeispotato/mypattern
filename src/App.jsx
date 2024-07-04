@@ -8,7 +8,7 @@ import { standardSize } from "./constant/size";
 import { useMediaQuery } from "react-responsive";
 
 function App() {
-  const isMobile = useMediaQuery({ query: "(max-resolution: 430px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
 
   const [name, setName] = useState(null);
   const [shoulder, setShoulder] = useState(null);
@@ -197,8 +197,8 @@ function App() {
               color: "#777",
               fontSize: isMobile ? "12px" : "18px",
               fontWeight: "400",
-              fontSize: isMobile ? "18px" : "27px",
-              fontSize: isMobile ? "-0.35px" : "-0.6px",
+              lineHeight: isMobile ? "18px" : "27px",
+              letterSpacing: isMobile ? "-0.35px" : "-0.6px",
             }}
           >
             패턴유형
@@ -216,8 +216,8 @@ function App() {
               color: "#111",
               fontSize: isMobile ? "12px" : "18px",
               fontWeight: "400",
-              fontSize: isMobile ? "18px" : "27px",
-              fontSize: isMobile ? "-0.35px" : "-0.6px",
+              lineHeight: isMobile ? "18px" : "27px",
+              letterSpacing: isMobile ? "-0.35px" : "-0.6px",
             }}
           >
             패턴 유형
@@ -272,8 +272,8 @@ function App() {
                 color: "#111",
                 fontSize: isMobile ? "12px" : "18px",
                 fontWeight: "600",
-                fontSize: isMobile ? "18px" : "27px",
-                fontSize: isMobile ? "-0.35px" : "-0.6px",
+                lineHeight: isMobile ? "18px" : "27px",
+                letterSpacing: isMobile ? "-0.35px" : "-0.6px",
               }}
             >
               상의 치수
@@ -375,8 +375,8 @@ function App() {
               color: "#fff",
               fontSize: isMobile ? "12px" : "18px",
               fontWeight: "500",
-              fontSize: isMobile ? "18px" : "27px",
-              fontSize: isMobile ? "-0.35px" : "-0.6px",
+              lineHeight: isMobile ? "18px" : "27px",
+              letterSpacing: isMobile ? "-0.35px" : "-0.6px",
             }}
           >
             제출하기

@@ -4,7 +4,7 @@ import PretendardText from "./pretendardText";
 import { useMediaQuery } from "react-responsive";
 
 const SizeBox = ({ title, value, isCm }) => {
-  const isMobile = useMediaQuery({ query: "(max-resolution: 430px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
 
   return (
     <SizeBoxWrapper $isMobile={isMobile}>
@@ -13,8 +13,8 @@ const SizeBox = ({ title, value, isCm }) => {
           color: "#777",
           fontSize: isMobile ? "12px" : "18px",
           fontWeight: "400",
-          fontSize: isMobile ? "18px" : "27px",
-          fontSize: isMobile ? "-0.35px" : "-0.6px",
+          lineHeight: isMobile ? "18px" : "27px",
+          letterSpacing: isMobile ? "-0.35px" : "-0.6px",
         }}
       >
         {title}
@@ -25,8 +25,8 @@ const SizeBox = ({ title, value, isCm }) => {
             color: "#111",
             fontSize: isMobile ? "12px" : "18px",
             fontWeight: "600",
-            fontSize: isMobile ? "18px" : "27px",
-            fontSize: isMobile ? "-0.35px" : "-0.6px",
+            lineHeight: isMobile ? "18px" : "27px",
+            letterSpacing: isMobile ? "-0.35px" : "-0.6px",
           }}
         >
           {value}
@@ -37,8 +37,8 @@ const SizeBox = ({ title, value, isCm }) => {
               color: "#111",
               fontSize: isMobile ? "12px" : "14px",
               fontWeight: "600",
-              fontSize: isMobile ? "18px" : "21px",
-              fontSize: isMobile ? "-0.35px" : "-0.6px",
+              lineHeight: isMobile ? "18px" : "21px",
+              letterSpacing: isMobile ? "-0.35px" : "-0.6px",
             }}
           >
             cm

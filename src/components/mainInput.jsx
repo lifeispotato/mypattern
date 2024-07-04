@@ -16,7 +16,7 @@ function MainInput({
   step,
   isCm,
 }) {
-  const isMobile = useMediaQuery({ query: "(max-resolution: 430px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
 
   return (
     <MainInputContainer>
