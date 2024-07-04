@@ -14,14 +14,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      function sendHeight() {
-        const height = document.documentElement.scrollHeight;
-        parent.postMessage({ type: "setHeight", height }, "*");
-      }
-
-      window.addEventListener("load", sendHeight);
-      window.addEventListener("resize", sendHeight);
-    </script>
   </body>
 </html>

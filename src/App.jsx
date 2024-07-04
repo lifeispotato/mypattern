@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import PretendardText from "./components/pretendardText";
 import MainInput from "./components/mainInput";
@@ -48,8 +48,25 @@ function App() {
     setSubmission(true);
   };
 
+  useEffect(() => {
+    function sendHeight() {
+      const targetDiv = document.getElementById("targetDiv");
+      const height = targetDiv.scrollHeight; // 또는 targetDiv.offsetHeight;
+      parent.postMessage({ type: "setHeight", height }, "*");
+    }
+
+    window.addEventListener("load", sendHeight);
+    window.addEventListener("resize", sendHeight);
+
+    return () => {
+      window.removeEventListener("load", sendHeight);
+      window.removeEventListener("resize", sendHeight);
+    };
+  }, []);
+
   return (
     <div
+      id="targetDiv"
       style={{
         padding: 40,
         display: "flex",
