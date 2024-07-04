@@ -201,7 +201,7 @@ function App() {
             패턴유형
           </PretendardText>
           <img
-            src={`/assets/images/pattern${pattern}.png`}
+            src={`/pattern${pattern}.png`}
             alt=""
             style={{ maxWidth: "100%", height: "auto" }}
           />
@@ -241,14 +241,12 @@ function App() {
                 }}
               >
                 <img
-                  src={`/assets/images/pattern${num}.png`}
+                  src={`/pattern${num}.png`}
                   alt=""
                   style={{ maxWidth: "100%", height: "auto" }}
                 />
                 <img
-                  src={`/assets/images/radio_${
-                    pattern === num ? "a" : "d"
-                  }.png`}
+                  src={`/radio_${pattern === num ? "a" : "d"}.png`}
                   alt=""
                   style={{
                     width: "18%",
