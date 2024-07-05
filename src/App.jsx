@@ -52,16 +52,38 @@ function App() {
     setSubmission(true);
   };
 
+  const [scrollHeight, setScrollHeight] = useState(0);
+
   useEffect(() => {
+    const updateScrollHeight = () => {
+      if (divRef.current) {
+        const newScrollHeight = divRef.current.scrollHeight;
+        setScrollHeight(newScrollHeight);
+        console.log("Scroll Height:", newScrollHeight);
+      }
+    };
+
+    updateScrollHeight();
+
+    // MutationObserver 설정
+    const observer = new MutationObserver(updateScrollHeight);
     if (divRef.current) {
-      const scrollHeight = divRef.current.scrollHeight;
-      console.log("Scroll Height:", scrollHeight);
-
-      let message = { height: scrollHeight };
-
-      window.top.postMessage(message, "*");
+      observer.observe(divRef.current, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+      });
     }
-  }, []); // 빈 배열을 전달하여 컴포넌트가 마운트될 때만 실행
+
+    // 윈도우 리사이즈 이벤트 추가
+    window.addEventListener("resize", updateScrollHeight);
+
+    // 클린업 함수
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateScrollHeight);
+    };
+  }, []); // 빈 배열로 설정하여 컴포넌트가 마운트될 때 한 번만 실행
 
   return (
     <div
