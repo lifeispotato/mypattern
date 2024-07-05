@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import PretendardText from "./components/pretendardText";
 import MainInput from "./components/mainInput";
@@ -8,6 +8,7 @@ import { standardSize } from "./constant/size";
 import { useMediaQuery } from "react-responsive";
 
 function App() {
+  const divRef = useRef(null);
   const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
 
   const [name, setName] = useState(null);
@@ -51,8 +52,20 @@ function App() {
     setSubmission(true);
   };
 
+  useEffect(() => {
+    if (divRef.current) {
+      const scrollHeight = divRef.current.scrollHeight;
+      console.log("Scroll Height:", scrollHeight);
+
+      let message = { height: scrollHeight };
+
+      window.top.postMessage(message, "*");
+    }
+  }, []); // 빈 배열을 전달하여 컴포넌트가 마운트될 때만 실행
+
   return (
     <div
+      ref={divRef}
       style={{
         padding: 40,
         display: "flex",
