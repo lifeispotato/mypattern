@@ -166,6 +166,7 @@ function App() {
             value={shoulder}
             onChange={(e) => setShoulder(e.target.value)}
             isCm={true}
+            type={"number"}
           />
         )}
         {submission ? (
@@ -176,6 +177,7 @@ function App() {
             value={chest}
             onChange={(e) => setChest(e.target.value)}
             isCm={true}
+            type={"number"}
           />
         )}
         {submission ? (
@@ -186,6 +188,7 @@ function App() {
             value={sleeve}
             onChange={(e) => setSleeve(e.target.value)}
             isCm={true}
+            type={"number"}
           />
         )}
         {submission ? (
@@ -196,6 +199,7 @@ function App() {
             value={waist}
             onChange={(e) => setWaist(e.target.value)}
             isCm={true}
+            type={"number"}
           />
         )}
         {submission ? (
@@ -206,6 +210,7 @@ function App() {
             value={top}
             onChange={(e) => setTop(e.target.value)}
             isCm={true}
+            type={"number"}
           />
         )}
         {submission ? (
@@ -216,6 +221,7 @@ function App() {
             value={bottom}
             onChange={(e) => setBottom(e.target.value)}
             isCm={true}
+            type={"number"}
           />
         )}
       </div>
