@@ -9,7 +9,7 @@ import { useMediaQuery } from "react-responsive";
 
 function App() {
   const divRef = useRef(null);
-  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
 
   const [name, setName] = useState(null);
   const [shoulder, setShoulder] = useState(null);
