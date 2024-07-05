@@ -56,6 +56,7 @@ function App() {
     }
 
     setSubmission(true);
+    window.parent.postMessage({ action: "navigate" }, "*");
   };
 
   const [scrollHeight, setScrollHeight] = useState(0);
