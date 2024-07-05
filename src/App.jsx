@@ -60,6 +60,9 @@ function App() {
         const newScrollHeight = divRef.current.scrollHeight;
         setScrollHeight(newScrollHeight);
         console.log("Scroll Height:", newScrollHeight);
+
+        let message = { height: newScrollHeight };
+        window.top.postMessage(message, "*");
       }
     };
 
