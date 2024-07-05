@@ -9,7 +9,7 @@ import { useMediaQuery } from "react-responsive";
 
 function App() {
   const divRef = useRef(null);
-  const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   const [name, setName] = useState(null);
   const [shoulder, setShoulder] = useState(null);
@@ -92,10 +92,11 @@ function App() {
     <div
       ref={divRef}
       style={{
-        padding: 40,
+        padding: isMobile ? "23px" : "40px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        maxWidth: "580px",
       }}
     >
       <div>
@@ -104,7 +105,7 @@ function App() {
             color: "#111",
             fontSize: isMobile ? "18px" : "35px",
             fontWeight: "600",
-            lineHeight: submission ? "49px" : "56px",
+            lineHeight: isMobile ? "25.2px" : submission ? "49px" : "56px",
             letterSpacing: isMobile ? "-0.35px" : "-0.6px",
             textAlign: "center",
           }}
@@ -244,7 +245,10 @@ function App() {
           <img
             src={`/pattern${pattern}.png`}
             alt=""
-            style={{ maxWidth: "100%", height: "auto" }}
+            style={{
+              maxWidth: isMobile ? "52px" : "100%",
+              height: isMobile ? "52px" : "auto",
+            }}
           />
         </div>
       ) : (
@@ -343,10 +347,10 @@ function App() {
             <PretendardText
               style={{
                 color: "#111",
-                fontSize: "18px",
+                fontSize: isMobile ? "12px" : "18px",
                 fontWeight: "600",
-                lineHeight: "25.2px",
-                letterSpacing: "-0.6px",
+                lineHeight: isMobile ? "18px" : "27px",
+                letterSpacing: isMobile ? "-0.35px" : "-0.6px",
               }}
             >
               하의 치수
