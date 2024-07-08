@@ -5,8 +5,10 @@ import StandardSizeBox from "../components/standardSizeBox";
 import { standardSize } from "../constant/size";
 import { useMediaQuery } from "react-responsive";
 import html2canvas from "html2canvas";
+import { useNavigate } from "react-router-dom";
 
 function ResultPage() {
+  const navigate = useNavigate();
   const divRef = useRef(null);
   const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
 
@@ -84,6 +86,21 @@ function ResultPage() {
       document.body.removeChild(link);
     });
   };
+
+  useEffect(() => {
+    const handlePopState = (event) => {
+      // 뒤로가기 버튼을 눌렀을 때 원하는 페이지로 리다이렉트
+      navigate("/");
+    };
+
+    // popstate 이벤트 리스너 추가
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      // 컴포넌트 언마운트 시 이벤트 리스너 정리
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [navigate]);
 
   return (
     <div
