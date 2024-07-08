@@ -103,22 +103,6 @@ function ResultPage() {
           padding: isMobile ? "23px" : "40px",
         }}
       >
-        <div>
-          <PretendardText
-            style={{
-              color: "#111",
-              fontSize: isMobile ? "18px" : "35px",
-              fontWeight: "600",
-              lineHeight: isMobile ? "25.2px" : "49px",
-              letterSpacing: isMobile ? "-0.35px" : "-0.6px",
-              textAlign: "center",
-            }}
-          >
-            여리패턴
-            <br />
-            신체 치수 결과입니다.
-          </PretendardText>
-        </div>
         <div
           style={{
             display: "flex",
@@ -126,7 +110,6 @@ function ResultPage() {
             alignItems: "center",
             gap: isMobile ? "8.66px" : "10px",
             width: "100%",
-            marginTop: isMobile ? "17px" : "30px",
           }}
         >
           <SizeBox title="이름" value={name} />
