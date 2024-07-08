@@ -18,6 +18,13 @@ function MainInput({
 }) {
   const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
 
+  const handleKeyDown = (e) => {
+    // 'e.key'가 '-'인지 확인하여 입력을 막음
+    if (e.key === "-") {
+      e.preventDefault();
+    }
+  };
+
   return (
     <MainInputContainer>
       <MainInputWrapper
@@ -34,6 +41,7 @@ function MainInput({
         style={{
           ...style,
         }}
+        min={0}
       />
       {isCm && <CmText>cm</CmText>}
     </MainInputContainer>

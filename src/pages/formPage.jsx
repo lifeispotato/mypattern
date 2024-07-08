@@ -99,6 +99,13 @@ function Formpage() {
     };
   }, []); // 빈 배열로 설정하여 컴포넌트가 마운트될 때 한 번만 실행
 
+  const handleKeyDown = (e) => {
+    // 'e.key'가 '-'인지 확인하여 입력을 막음
+    if (e.key === "-") {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div
       ref={divRef}
@@ -166,6 +173,7 @@ function Formpage() {
             onChange={(e) => setShoulder(e.target.value)}
             isCm={true}
             type={"number"}
+            onKeyDown={handleKeyDown}
           />
           <MainInput
             placeholder={"가슴둘레*"}
@@ -173,6 +181,7 @@ function Formpage() {
             onChange={(e) => setChest(e.target.value)}
             isCm={true}
             type={"number"}
+            onKeyDown={handleKeyDown}
           />
           <MainInput
             placeholder={"소매길이*"}
@@ -180,6 +189,7 @@ function Formpage() {
             onChange={(e) => setSleeve(e.target.value)}
             isCm={true}
             type={"number"}
+            onKeyDown={handleKeyDown}
           />
           <MainInput
             placeholder={"허리둘레*"}
@@ -187,6 +197,7 @@ function Formpage() {
             onChange={(e) => setWaist(e.target.value)}
             isCm={true}
             type={"number"}
+            onKeyDown={handleKeyDown}
           />
           <MainInput
             placeholder={"상의총장*"}
@@ -194,6 +205,7 @@ function Formpage() {
             onChange={(e) => setTop(e.target.value)}
             isCm={true}
             type={"number"}
+            onKeyDown={handleKeyDown}
           />
           <MainInput
             placeholder={"하의총장*"}
@@ -201,6 +213,7 @@ function Formpage() {
             onChange={(e) => setBottom(e.target.value)}
             isCm={true}
             type={"number"}
+            onKeyDown={handleKeyDown}
           />
         </div>
         <div style={{ width: "100%", marginTop: "30px" }}>
