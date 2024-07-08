@@ -31,28 +31,42 @@ function Formpage() {
       return;
     }
 
+    let topSize = "";
+    let bottomSize = "";
+
     if (shoulder <= 35) {
-      setTopSize("size55");
+      topSize = "size55";
     } else if (shoulder <= 36) {
-      setTopSize("size66");
+      topSize = "size66";
     } else if (shoulder <= 37) {
-      setTopSize("size77");
+      topSize = "size77";
     } else if (shoulder <= 38) {
-      setTopSize("size88");
+      topSize = "size88";
     } else if (shoulder >= 38.5) {
-      setTopSize("size99");
+      topSize = "size99";
     }
     if (waist <= 26) {
-      setBottomSize("size55");
+      bottomSize = "size55";
     } else if (waist <= 28) {
-      setBottomSize("size66");
+      bottomSize = "size66";
     } else if (waist <= 30) {
-      setBottomSize("size77");
+      bottomSize = "size77";
     } else if (waist <= 32) {
-      setBottomSize("size88");
+      bottomSize = "size88";
     } else if (waist >= 34) {
-      setBottomSize("size99");
+      bottomSize = "size99";
     }
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("shoulder", shoulder);
+    localStorage.setItem("chest", chest);
+    localStorage.setItem("sleeve", sleeve);
+    localStorage.setItem("waist", waist);
+    localStorage.setItem("top", top);
+    localStorage.setItem("bottom", bottom);
+    localStorage.setItem("pattern", pattern);
+    localStorage.setItem("topSize", topSize);
+    localStorage.setItem("bottomSize", bottomSize);
 
     setSubmission(true);
     window.parent.postMessage({ action: "navigate" }, "*");
