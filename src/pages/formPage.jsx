@@ -6,8 +6,11 @@ import StandardSizeBox from "../components/standardSizeBox";
 import { standardSize } from "../constant/size";
 import { useMediaQuery } from "react-responsive";
 import html2canvas from "html2canvas";
+import { useNavigate } from "react-router-dom";
+import { route } from "../router/route";
 
 function Formpage() {
+  const navigate = useNavigate();
   const divRef = useRef(null);
   const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
 
@@ -68,7 +71,8 @@ function Formpage() {
     localStorage.setItem("topSize", topSize);
     localStorage.setItem("bottomSize", bottomSize);
 
-    setSubmission(true);
+    // setSubmission(true);
+    navigate(route.result);
     window.parent.postMessage({ action: "navigate" }, "*");
   };
 
