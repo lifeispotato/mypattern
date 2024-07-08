@@ -24,6 +24,7 @@ function Formpage() {
   const [pattern, setPattern] = useState(null);
 
   const [submission, setSubmission] = useState(false);
+  const [btnDisabled, setBtnDisabled] = useState(false);
 
   const [topSize, setTopSize] = useState("size0");
   const [bottomSize, setBottomSize] = useState("size0");
@@ -71,7 +72,7 @@ function Formpage() {
     localStorage.setItem("topSize", topSize);
     localStorage.setItem("bottomSize", bottomSize);
 
-    // setSubmission(true);
+    setBtnDisabled(true);
     navigate(route.result);
     window.parent.postMessage({ action: "navigate" }, "*");
   };
@@ -439,6 +440,7 @@ function Formpage() {
             width: submission ? "163px" : "100%",
             padding: isMobile ? "8.66px 0" : "15px 0",
             backgroundColor:
+              !btnDisabled &&
               name &&
               shoulder &&
               chest &&
@@ -459,6 +461,7 @@ function Formpage() {
           }}
           onClick={() => {
             if (
+              !btnDisabled &&
               name &&
               shoulder &&
               chest &&
