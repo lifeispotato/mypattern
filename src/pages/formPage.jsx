@@ -60,7 +60,7 @@ function Formpage() {
     localStorage.setItem("bottomSize", bottomSize);
 
     setBtnDisabled(true);
-    navigate(route.result);
+    // navigate(route.result);
     window.parent.postMessage({ action: "navigate" }, "*");
   };
 
