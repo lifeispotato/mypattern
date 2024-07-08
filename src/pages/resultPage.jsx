@@ -42,7 +42,6 @@ function ResultPage() {
       if (divRef.current) {
         const newScrollHeight = divRef.current.scrollHeight;
         setScrollHeight(newScrollHeight);
-        console.log("Scroll Height:", newScrollHeight);
 
         let message = { height: newScrollHeight };
         window.top.postMessage(message, "*");
@@ -247,7 +246,6 @@ function ResultPage() {
             justifyContent: "center",
             borderRadius: "50px",
             cursor: "pointer",
-            // marginTop: isMobile ? "17px" : submission ? "60px" : "30px",
           }}
           onClick={() => {
             onClickDownloadButton();
