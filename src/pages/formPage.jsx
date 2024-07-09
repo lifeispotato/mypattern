@@ -33,7 +33,7 @@ function Formpage() {
       topSize = "size77";
     } else if (shoulder <= 38) {
       topSize = "size88";
-    } else if (shoulder >= 38.5) {
+    } else if (shoulder >= 38) {
       topSize = "size99";
     }
     if (waist <= 26) {
@@ -44,7 +44,7 @@ function Formpage() {
       bottomSize = "size77";
     } else if (waist <= 32) {
       bottomSize = "size88";
-    } else if (waist >= 34) {
+    } else if (waist >= 33) {
       bottomSize = "size99";
     }
 

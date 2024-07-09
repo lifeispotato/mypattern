@@ -204,7 +204,7 @@ function ResultPage() {
                 value={standardSize[bottomSize]?.size}
               />
               <StandardSizeBox
-                title="가슴 둘레"
+                title="허리 둘레"
                 value={standardSize[bottomSize]?.waist}
               />
               <StandardSizeBox
